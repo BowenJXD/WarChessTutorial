@@ -46,7 +46,7 @@ namespace WarChess
         /// </summary>
         public void HideLevelDes()
         {
-            Find("level").SetActive(false);
+            Find("level")?.SetActive(false);
         }
 
         /// <summary>

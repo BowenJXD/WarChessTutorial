@@ -72,7 +72,7 @@ namespace WarChess
         /// <param name="controllerKey"></param>
         /// <param name="eventName"></param>
         /// <param name="args"></param>
-        public void ApplyFunc(int controllerKey, string eventName, System.Object[] args)
+        public void ApplyFunc(int controllerKey, string eventName, object[] args)
         {
             if (modules.ContainsKey(controllerKey))
             {

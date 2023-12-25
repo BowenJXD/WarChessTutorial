@@ -21,7 +21,7 @@
             isFinished = false;
         }
 
-        public virtual bool Update(float dt)
+        public virtual bool OnUpdate(float dt)
         {
             return isFinished;
         }

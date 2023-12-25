@@ -12,20 +12,20 @@ namespace WarChess
             
             step = int.Parse(data["Step"]);
             attack = int.Parse(data["Attack"]);
-            type = int.Parse(data["Type"]);
+            type = (EModelType) int.Parse(data["Type"]);
             maxHp = int.Parse(data["Hp"]);
             curHp = maxHp;
         }
         
-        protected override void OnSelectCallback(object obj)
+        protected override void OnSelectCallback(object arg)
         {
-            base.OnSelectCallback(obj);
+            base.OnSelectCallback(arg);
             GameApp.ViewManager.Open(EViewType.EnemyDesView, this);
         }
 
-        protected override void OnUnselectCallback(object obj)
+        protected override void OnUnselectCallback(object arg)
         {
-            base.OnUnselectCallback(obj);
+            base.OnUnselectCallback(arg);
             GameApp.ViewManager.Close(EViewType.EnemyDesView);
         }
     }

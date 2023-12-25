@@ -13,7 +13,7 @@ namespace WarChess
     {
         protected Dictionary<string, string> data;
 
-        private void Start()
+        void Start()
         {
             transform.Find("icon").GetComponent<Image>().SetIcon(data["Icon"]);
         }

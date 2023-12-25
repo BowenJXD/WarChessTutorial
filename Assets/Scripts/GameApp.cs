@@ -30,6 +30,8 @@ namespace WarChess
         
         public static CommandManager CommandManager { get; set; }
         
+        public static SkillManager SkillManager { get; set; }
+        
         public override void Init()
         {
             TimerManager = new TimerManager();
@@ -47,6 +49,7 @@ namespace WarChess
             DataManager = new GameDataManager();
             InputManager = new UserInputManager();
             CommandManager = new CommandManager();
+            SkillManager = new SkillManager();
         }
         
         public override void Update(float dt)
@@ -55,6 +58,7 @@ namespace WarChess
             FightManager.OnUpdate(dt);
             InputManager.OnUpdate(dt);
             CommandManager.OnUpdate(dt);
+            SkillManager.OnUpdate(dt);
         }
     }
 }

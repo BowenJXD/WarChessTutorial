@@ -2,6 +2,9 @@
 
 namespace WarChess
 {
+    /// <summary>
+    ///  Command manager, automatically execute the next command after the previous command is completed
+    /// </summary>
     public class CommandManager
     {
         /// <summary>
@@ -49,7 +52,7 @@ namespace WarChess
             }
             else
             {
-                if (current.Update(dt))
+                if (current.OnUpdate(dt))
                 {
                     current = null;
                 }

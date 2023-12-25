@@ -14,5 +14,6 @@
         TipView,
         HeroDesView,
         EnemyDesView,
+        SelectOptionView,
     }
 }

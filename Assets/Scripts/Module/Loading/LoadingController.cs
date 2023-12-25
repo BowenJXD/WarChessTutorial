@@ -30,7 +30,7 @@ namespace WarChess
             RegisterFunc(Defines.OpenLoadingView, LoadSceneCallback);
         }
         
-        void LoadSceneCallback(Object[] args)
+        void LoadSceneCallback(object[] args)
         {
             LoadingModel loadingModel = (LoadingModel) args[0];
             SetModel(loadingModel);

@@ -56,7 +56,7 @@
 
         void OnHideLevelDesCallback(object arg)
         {
-            GameApp.ViewManager.GetView<SelectLevelView>((int)EViewType.SelectLevelView).HideLevelDes();
+            GameApp.ViewManager.GetView<SelectLevelView>((int)EViewType.SelectLevelView)?.HideLevelDes();
         }
 
     }

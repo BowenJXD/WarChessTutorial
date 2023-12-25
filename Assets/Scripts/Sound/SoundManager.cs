@@ -76,5 +76,17 @@ namespace WarChess
             bgmSource.clip = clips[res];
             bgmSource.Play();
         }
+
+        public void PlayEffect(string soundName, Vector3 pos)
+        {
+            if (isStop) return;
+            AudioClip clip = null;
+            if (!clips.ContainsKey(soundName))
+            {
+                clip = Resources.Load<AudioClip>($"Sounds/{soundName}");
+                clips.Add(soundName, clip);
+            }
+            AudioSource.PlayClipAtPoint(clips[soundName], pos);
+        }
     }
 }

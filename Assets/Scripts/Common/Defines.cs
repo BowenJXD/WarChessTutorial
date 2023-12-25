@@ -19,5 +19,11 @@
         
         public static readonly string OnSelectEvent = "OnSelectEvent";
         public static readonly string OnUnselectEvent = "OnUnselectEvent";
+        
+        // options: Attack, Idle, Cancel, RemoveHeroToScene
+        public static readonly string OnAttackEvent = "OnAttackEvent";
+        public static readonly string OnIdleEvent = "OnIdleEvent";
+        public static readonly string OnCancelEvent = "OnCancelEvent";
+        public static readonly string OnRemoveHeroToSceneEvent = "OnRemoveHeroToSceneEvent";
     }
 }

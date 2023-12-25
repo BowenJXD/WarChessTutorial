@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace WarChess
 {
     /// <summary>
-    /// Message process center
+    /// Message process center, need to be executed manually
     /// </summary>
     public class MessageCenter
     {
@@ -73,7 +73,7 @@ namespace WarChess
         {
             if (tempMsgDic.ContainsKey(eventName))
             {
-                tempMsgDic[eventName] += callback;
+                tempMsgDic[eventName] = callback; // temp event will override the previous one instead of adding
             }
             else
             {

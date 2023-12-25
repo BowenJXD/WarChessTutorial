@@ -15,7 +15,7 @@ namespace WarChess
             timers = new List<GameTimerData>();
         }
         
-        public void RegisterTimer(float timer, Action callback)
+        public void Register(float timer, Action callback)
         {
             timers.Add(new GameTimerData(timer, callback));
         }

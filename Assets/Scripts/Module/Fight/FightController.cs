@@ -9,6 +9,8 @@ namespace WarChess
     {
         public FightController() : base()
         {
+            SetModel(new FightModel(this));
+            
             GameApp.ViewManager.Register(EViewType.FightView, new ViewInfo()
             {
                 prefabName = "FightView",
@@ -56,7 +58,19 @@ namespace WarChess
                 sortingOrder = 2,
             });
             
+            GameApp.ViewManager.Register(EViewType.SelectOptionView, new ViewInfo()
+            {
+                prefabName = "SelectOptionView",
+                parentTf = GameApp.ViewManager.canvasTf,
+                controller = this,
+            });
+            
             InitModuleEvent();
+        }
+
+        public override void Init()
+        {
+            model.Init();
         }
 
         public override void InitModuleEvent()

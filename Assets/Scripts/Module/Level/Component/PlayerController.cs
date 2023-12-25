@@ -11,11 +11,14 @@ namespace WarChess
         public float moveSpeed = 5f;
         [HideInInspector] public Animator ani;
         [HideInInspector] public Transform tf;
+        [HideInInspector] public Collider2D col;
         
         void Start()
         {
             ani = GetComponent<Animator>();
             tf = transform;
+            col = GetComponent<Collider2D>();
+            GameApp.TimerManager.Register(1f, () => col.enabled = true);
             GameApp.CameraManager.SetPos(tf.position);
         }
 

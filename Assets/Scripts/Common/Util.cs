@@ -23,5 +23,14 @@ namespace WarChess
             Collider2D col = Physics2D.OverlapCircle(worldPos, 0.02f);
             callback?.Invoke(col);
         }
+        
+        public static Collider2D ScreenPointToRay2D(Camera cam = null, Vector2 mousePos = default)
+        {
+            cam ??= Camera.main;
+            mousePos = mousePos == default ? Input.mousePosition : mousePos;
+            Vector3 worldPos = cam.ScreenToWorldPoint(mousePos);
+            Collider2D col = Physics2D.OverlapCircle(worldPos, 0.02f);
+            return col;
+        }
     }
 }

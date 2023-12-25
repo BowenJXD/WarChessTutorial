@@ -5,7 +5,7 @@ using System.Linq;
 namespace WarChess
 {
     /// <summary>
-    /// Breadth first search
+    /// Breadth first search, used to find movable area, which defaults to have EBlockType.Null
     /// </summary>
     public class BFS
     {
@@ -30,20 +30,21 @@ namespace WarChess
         /// </summary>
         public Dictionary<string, Point> founds;
         
-        public Func<int, int, bool> checkCondition;
+        public List<EBlockType> inaccessibleTypes;
 
-        public BFS(int row, int col)
+        public BFS(int row, int col, List<EBlockType> types = null)
         {
             rowCount = row;
             colCount = col;
             founds = new Dictionary<string, Point>();
-            checkCondition = (r, c) =>
-            {
-                bool result = GameApp.MapManager.GetBlockType(r, c) != EBlockType.Obstacle;
-                return result;
-            };
+            inaccessibleTypes = types ?? new List<EBlockType>{EBlockType.Obstacle};
         }
         
+        public void SetAccessibleTypes(List<EBlockType> types)
+        {
+            inaccessibleTypes = types;
+        }
+
         /// <summary>
         /// Search for the movable area
         /// </summary>
@@ -122,13 +123,24 @@ namespace WarChess
         public void TryAddFinds(int row, int col, Point parent, List<Point> temps)
         {
             // If the point is not in the founds list, and the point is not an obstacle, add it to the founds list
-            bool condition = checkCondition?.Invoke(row, col) ?? true;
+            bool condition = CheckCondition(row, col);
             if (!founds.ContainsKey($"{row}_{col}") && condition)
             {
                 Point p = new Point(row, col, parent);
                 temps.Add(p);
                 founds.Add($"{row}_{col}", p);
             }
+        }
+        
+        public bool CheckCondition(int row, int col)
+        {
+            if (inaccessibleTypes == null)
+            {
+                return true;
+            }
+            
+            EBlockType type = GameApp.MapManager.GetBlockType(row, col);
+            return !inaccessibleTypes.Contains(type);
         }
     }
 }

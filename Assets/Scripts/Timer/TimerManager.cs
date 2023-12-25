@@ -16,7 +16,7 @@ namespace WarChess
         
         public void Register(float duration, Action callback)
         {
-            timer.RegisterTimer(duration, callback);
+            timer.Register(duration, callback);
         }
         
         public void OnUpdate(float dt)
